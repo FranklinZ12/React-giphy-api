@@ -1,24 +1,29 @@
-import React, { Fragment } from 'react'
-
+import React, { Fragment, useEffect, useState } from 'react';
+import GifGridItem from './GifGridItem';
+import 'styles/giftGrid.css';
+import { getGift } from 'api/getGifts';
 const GiftGrid = ({ category }) => {
+    const [images, setImages] = useState([]);
 
-    const getGift = async () => {
-        const URL = 'https://api.giphy.com/v1/gifs/search?q=Jujutsu+kaisen&limit=10&api_key=oTap5fgE5Cc92l6mC8GTQOAWlHDp57l2';
-        const resp = await fetch(URL);
-        const { data } = await resp.json();
-        const gifs = data.map(gif => {
-            return {
-                id: gif.id,
-                title: gif.title,
-                url: gif.images?.downsized_medium.url,
-            }
-        })
-        console.log(gifs)
-    }
-    getGift()
+    useEffect(() => {
+        getGift(category)
+            .then(setImages)
+    }, [category]);
+
     return (
         <Fragment>
             <h3>{category}</h3>
+            <div className="card-grid">
+                {images.map((gif) => {
+                    return (
+                        <GifGridItem
+                            key={gif.id}
+                            {...gif}
+                        />
+                    );
+                })
+                }
+            </div>
         </Fragment>
     )
 }

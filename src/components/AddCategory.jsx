@@ -12,11 +12,12 @@ const AddCategory = ({ setCategories }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValue.trim().length > 2) {
-            setCategories(cats => [...cats, inputValue]);
-            setInputValue('');
+            setCategories(cats => [inputValue, ...cats]);
+            setInputValue("");
         } else
             alert('Porfavor ingresar una categoria');
     };
+    console.log(inputValue)
 
     return (
         <form onSubmit={handleSubmit}>
@@ -25,7 +26,7 @@ const AddCategory = ({ setCategories }) => {
                 type="text"
                 label='Add Category'
                 placeholder="Agregar categoria" required={false}
-                defaultValue={inputValue}
+                value={inputValue}
                 onChange={handleInputChange}
             />
         </form>
