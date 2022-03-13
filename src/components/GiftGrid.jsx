@@ -1,18 +1,15 @@
+import { useFetchGifs } from 'hooks/useFetchGifs';
 import React, { Fragment, useEffect, useState } from 'react';
 import GifGridItem from './GifGridItem';
 import 'styles/giftGrid.css';
-import { getGift } from 'api/getGifts';
-const GiftGrid = ({ category }) => {
-    const [images, setImages] = useState([]);
 
-    useEffect(() => {
-        getGift(category)
-            .then(setImages)
-    }, [category]);
+const GiftGrid = ({ category }) => {
+    const { data: images, loading } = useFetchGifs(category);
 
     return (
         <Fragment>
-            <h3>{category}</h3>
+            <h3 className="animate__animated animate__backInDown">{category}</h3>
+            {loading && <p className='animate__animated animate__flash'>Loading..</p>}
             <div className="card-grid">
                 {images.map((gif) => {
                     return (
