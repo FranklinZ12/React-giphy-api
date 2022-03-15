@@ -1,7 +1,8 @@
 import { useFetchGifs } from 'hooks/useFetchGifs';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import GifGridItem from './GifGridItem';
 import 'styles/giftGrid.css';
+import ReactLoading from 'react-loading';
 
 const GiftGrid = ({ category }) => {
     const { data: images, loading } = useFetchGifs(category);
@@ -9,7 +10,10 @@ const GiftGrid = ({ category }) => {
     return (
         <Fragment>
             <h3 className="animate__animated animate__backInDown">{category}</h3>
-            {loading && <p className='animate__animated animate__flash'>Loading..</p>}
+            {loading &&
+                <div className="flex justify-center">
+                    <ReactLoading type='bars' color='#808080' height={150} width={100} />
+                </div>}
             <div className="card-grid">
                 {images.map((gif) => {
                     return (
