@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .card {
-    @apply items-center border rounded border-gray-400 mb-2 overflow-hidden
+    @apply items-center rounded  mb-2 mr-2 overflow-hidden
 }
 
 .card p{
-    @apply p-1 text-center
+    @apply p-1 text-center font-semibold text-sm text-white
 }
 
 .card img{
-    @apply max-h-[170px]
+    @apply max-h-[170px] w-full
 }

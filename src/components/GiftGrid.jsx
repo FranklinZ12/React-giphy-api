@@ -9,7 +9,7 @@ const GiftGrid = ({ category }) => {
 
     return (
         <Fragment>
-            <h3 className="animate__animated animate__backInDown">{category}</h3>
+            <h5 className="animate__animated animate__backInDown tracking-wider pl-20 text-yellow-50 font-extrabold">{category}</h5>
             {loading &&
                 <div className="flex justify-center">
                     <ReactLoading type='bars' color='#808080' height={150} width={100} />
@@ -25,6 +25,7 @@ const GiftGrid = ({ category }) => {
                 })
                 }
             </div>
+            <hr className="border-0 border-t-4 border-double border-white pt-2 w-11/12" />
         </Fragment>
     )
 }

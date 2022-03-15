@@ -24,7 +24,7 @@ const AddCategory = ({ setCategories }) => {
             <Input
                 name='addCategory'
                 type="text"
-                label='Add Category'
+                label='Agrega tu categoria...'
                 placeholder="Agregar categoria" required={false}
                 value={inputValue}
                 onChange={handleInputChange}

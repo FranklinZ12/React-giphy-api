@@ -11,7 +11,7 @@ const GifExpertApp = () => {
 
     return (
         <Fragment>
-            <h2>GifExpertApp</h2>
+            <h2 className="text-center font-bold pb-2 text-white">Busca tu Gif</h2>
             <AddCategory setCategories={setCategories} />
             <hr />
             <ol>

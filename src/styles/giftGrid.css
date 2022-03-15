@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .card-grid {
-  @apply flex flex-row flex-wrap
+  @apply flex flex-row flex-wrap justify-center pb-4
 }
